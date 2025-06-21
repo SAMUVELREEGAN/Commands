@@ -1,0 +1,35 @@
+Plan in Portfolio
+
+
+
+once page load get user name 
+
+
+	Phone 	 Mail 	WhatsApp    
+
+Nav === > Sam. 					GitHub 	Dark, Light
+
+
+
+1st ==> Welcome
+2nd ==> Details  , pic
+3rd ==> Education and certification 
+4th ==> Skills
+5th ==> Projects
+6th ==> Experience
+7th ==> Project URLs
+8th ==> Blogs / Services
+9th ==> Contact
+    =>	1.Set Personal ==>
+	2.Set hiring option ==> show resume ==> role  => LPA package details ==> set call button 
+	3. Set freelancer contact 
+10th => Footer
+
+
+https://aiven.io/pricing
+
+
+
+webpush notification 
+netify
+

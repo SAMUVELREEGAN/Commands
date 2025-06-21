@@ -1,0 +1,33 @@
+Code Updates and Features
+1. Data Encryption and Decryption
+Encryption:
+Added functionality to encrypt the data (e.g., text) before hiding it in an image or media file.
+Used encryption libraries like cryptography to securely encrypt the message.
+The user is prompted to set a password for encryption.
+Decryption:
+Implemented a decryption mechanism.
+The user is required to input the correct password to decrypt the hidden message.
+If the password is incorrect, the system alerts the user.
+2. Password Protection
+Introduced password-protected hiding and revealing of data.
+Workflow:
+When hiding data, the user provides a password to encrypt the message.
+When revealing data, the same password must be entered to decrypt and view the hidden content.
+Prevented access to data if the password is incorrect or missing.
+3. Video and Audio Support
+Added the ability to embed hidden messages in video or audio files:
+Video:
+Used video processing libraries (e.g., moviepy or opencv) to embed and extract data from specific video frames.
+Audio:
+Incorporated audio steganography techniques to embed messages in the audio stream of video files or standalone audio files.
+Utilized libraries like pydub or custom frequency-modulation techniques.
+Allowed users to select video or audio files and handle them securely.
+4. User Interface Updates
+Added buttons for handling videos and audio:
+Open Video: Allows the user to select a video file for processing.
+Open Audio: Enables selection of an audio file for embedding or extracting hidden messages.
+Improved error handling with appropriate messages for unsupported file types or invalid inputs.
+5. Security Enhancements
+Incorporated additional validation to prevent unauthorized access to sensitive data.
+Ensured encrypted data cannot be retrieved or interpreted without the correct password.
+Used strong encryption standards (e.g., AES-256) for maximum security.

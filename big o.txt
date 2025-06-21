@@ -1,0 +1,24 @@
+big o
+Time complexity
+
+fundamental of programming
+	problem solving,
+	Algorithms'
+	Example : Sorting Algorithm,
+	Json Manipulations
+	
+Technology's:
+	Web Tech =>1)Web Sites or blogs ,2)Web Applications,
+	Cloud,
+	big data,
+	mechinelearning
+
+
+
+
+
+
+
+
+Java,Springboot,MySql(server) , React , Angular ,HTML,CSS(Ui)
+

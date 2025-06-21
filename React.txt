@@ -1,0 +1,41 @@
+npm install --save-dev ajv@^7
+
+
+
+
+input==> el.preventDefault()===>refresh
+routeparameter==>useParams()
+
+After click same Page ===>useNavigate()
+npm install react-router-dom
+npm i react-router-dom
+
+npm i @blueprintjs/core
+
+
+
+npm i react-router-dom
+
+npm install react-bootstrap bootstrap
+
+npm install react-use-cart ===>isEmpty , totalUniqueItems , items , totalItems,cartTotal  ,updateItemQuantity ,removeItem ,emptyCart
+
+npm i @reduxjs/toolkit react-redux
+
+preventdefault()
+
+
+npm i react-toastify
+
+npm install react@18.2.0 react-dom@18.2.0npm install @testing-library/react@13.4.0 @testing-library/jest-dom@5.16.5 @testing-library/user-event@14.4.3 web-vitals@2.1.4
+
+npm install --legacy-peer-deps
+
+npm install --force
+
+
+npm cache clean --force
+
+
+npm create vite@latest
+

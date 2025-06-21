@@ -1,0 +1,47 @@
+py -3 -m venv .venv
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process   
+
+.venv/Scripts/activate
+
+pip install django
+
+django-admin startproject day01 .
+
+python manage.py startapp Product
+
+python manage.py runserver
+
+pip install django-bootstrap-v5
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+python manage.py makemigrations
+
+pip install pillow
+
+ 	
+SQL
+
+pip install mysqlclient
+
+python manage.py migrate
+
+
+DRF
+
+pip install djangorestframework
+
+pip install djangorestframework-simplejwt
+
+pip install django-filter
+
+ pip install django-cors-headers
+
+
+
+
+
+pip install -U django-jazzmin

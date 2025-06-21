@@ -1,0 +1,228 @@
+### Django Backend Full Code
+
+# Install dependencies
+# pip install django djangorestframework channels
+
+# chatapp/settings.py (add channels configuration)
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework',
+    'chat',  # Add your chat app
+    'channels',  # Add Channels
+]
+
+ASGI_APPLICATION = 'chatapp.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
+
+# chat/models.py
+from django.contrib.auth.models import User
+from django.db import models
+
+class ChatRoom(models.Model):
+    name = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+class Message(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    chat_room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE, related_name="messages")
+    content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['timestamp']
+
+# chat/serializers.py
+from rest_framework import serializers
+from .models import ChatRoom, Message
+
+class ChatRoomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChatRoom
+        fields = ['id', 'name']
+
+class MessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Message
+        fields = ['id', 'user', 'chat_room', 'content', 'timestamp']
+
+# chat/views.py
+from rest_framework.viewsets import ModelViewSet
+from .models import ChatRoom, Message
+from .serializers import ChatRoomSerializer, MessageSerializer
+
+class ChatRoomViewSet(ModelViewSet):
+    queryset = ChatRoom.objects.all()
+    serializer_class = ChatRoomSerializer
+
+class MessageViewSet(ModelViewSet):
+    queryset = Message.objects.all()
+    serializer_class = MessageSerializer
+
+# chat/consumers.py
+import json
+from channels.generic.websocket import AsyncWebsocketConsumer
+
+class ChatConsumer(AsyncWebsocketConsumer):
+    async def connect(self):
+        self.room_name = self.scope['url_route']['kwargs']['room_name']
+        self.room_group_name = f'chat_{self.room_name}'
+
+        # Join room group
+        await self.channel_layer.group_add(
+            self.room_group_name,
+            self.channel_name
+        )
+
+        await self.accept()
+
+    async def disconnect(self, close_code):
+        # Leave room group
+        await self.channel_layer.group_discard(
+            self.room_group_name,
+            self.channel_name
+        )
+
+    async def receive(self, text_data):
+        text_data_json = json.loads(text_data)
+        message = text_data_json['message']
+
+        # Send message to room group
+        await self.channel_layer.group_send(
+            self.room_group_name,
+            {
+                'type': 'chat_message',
+                'message': message
+            }
+        )
+
+    async def chat_message(self, event):
+        message = event['message']
+
+        # Send message to WebSocket
+        await self.send(text_data=json.dumps({
+            'message': message
+        }))
+
+# chatapp/asgi.py
+import os
+from django.core.asgi import get_asgi_application
+from channels.routing import ProtocolTypeRouter, URLRouter
+from channels.auth import AuthMiddlewareStack
+from chat.routing import websocket_urlpatterns
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chatapp.settings')
+
+application = ProtocolTypeRouter({
+    'http': get_asgi_application(),
+    'websocket': AuthMiddlewareStack(
+        URLRouter(
+            websocket_urlpatterns
+        )
+    ),
+})
+
+# chat/routing.py
+from django.urls import path
+from .consumers import ChatConsumer
+
+websocket_urlpatterns = [
+    path('ws/chat/<str:room_name>/', ChatConsumer.as_asgi()),
+]
+
+# urls.py
+from django.contrib import admin
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from chat.views import ChatRoomViewSet, MessageViewSet
+
+router = DefaultRouter()
+router.register(r'rooms', ChatRoomViewSet)
+router.register(r'messages', MessageViewSet)
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+]
+
+### React Frontend Full Code
+
+# Install dependencies
+# npx create-react-app chat-frontend
+# npm install axios socket.io-client
+
+# src/App.js
+import React, { useState, useEffect } from 'react';
+import io from 'socket.io-client';
+import axios from 'axios';
+
+const socket = io('http://localhost:8000');
+
+function App() {
+    const [rooms, setRooms] = useState([]);
+    const [messages, setMessages] = useState([]);
+    const [currentRoom, setCurrentRoom] = useState(null);
+    const [newMessage, setNewMessage] = useState('');
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/rooms/')
+            .then(response => setRooms(response.data));
+    }, []);
+
+    useEffect(() => {
+        if (currentRoom) {
+            axios.get(`http://localhost:8000/api/messages/?chat_room=${currentRoom.id}`)
+                .then(response => setMessages(response.data));
+
+            socket.emit('join_room', currentRoom.name);
+
+            socket.on('message', (message) => {
+                setMessages(prev => [...prev, message]);
+            });
+        }
+    }, [currentRoom]);
+
+    const sendMessage = () => {
+        socket.emit('send_message', { message: newMessage });
+        setNewMessage('');
+    };
+
+    return (
+        <div>
+            <h1>Chat App</h1>
+            <div>
+                <h2>Rooms</h2>
+                {rooms.map(room => (
+                    <button key={room.id} onClick={() => setCurrentRoom(room)}>{room.name}</button>
+                ))}
+            </div>
+
+            {currentRoom && (
+                <div>
+                    <h2>{currentRoom.name}</h2>
+                    <div>
+                        {messages.map((msg, index) => (
+                            <p key={index}>{msg.content}</p>
+                        ))}
+                    </div>
+                    <input
+                        value={newMessage}
+                        onChange={e => setNewMessage(e.target.value)}
+                    />
+                    <button onClick={sendMessage}>Send</button>
+                </div>
+            )}
+        </div>
+    );
+}
+
+export default App;

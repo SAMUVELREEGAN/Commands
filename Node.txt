@@ -1,0 +1,40 @@
+npm init -y
+npm install express nodemon
+npm install mongoose
+	package:
+		"start":"nodemon app.js"
+
+npm i nodemon
+
+
+npm install multer
+
+
+
+npm i jsonwebtoken ===>data,passcode,config
+
+npm i cors
+
+npm i bcrypt ===>Password Hash
+
+npm i express-validator
+
+
+npm i body-parser
+
+
+
+
+http method:
+	GET ==>Defalult Method
+	POST
+	PUT
+	DELETE
+	PATCH
+	OPTIONS
+
+
+Authendication & Authoerzation
+OAuht0
+OAuth2
+JWT

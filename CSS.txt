@@ -1,0 +1,52 @@
+CSS
+
+
+
+noWrap={false}
+  sx={{
+    display: '-webkit-box',
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: 'vertical',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  }}
+
+
+
+sx={{backgroundColor:"green", color:"white" ,'&:hover':{backgroundColor:"red" ,color:"purple"}}}
+
+
+
+
+
+<section
+        className="snap-slide"
+        style={{ backgroundImage: `url(${bgImage})` }}
+      >
+        <div className="snap-content" data-aos="fade-up">
+          <h1>Wood Elegance</h1>
+          <p>Discover timeless elegance in every detail.</p>
+        </div>
+      </section>
+
+
+
+.snap-container {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+  
+  .snap-slide {
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

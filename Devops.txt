@@ -1,0 +1,37 @@
+10digits==>chmod
+1=>dirctry,file,link
+3=>user
+3=>group
+3=>other
+
+(r)read=>4
+(w)write=>2
+(e)execute=>1
+
+permission{
+sudo chmod 740 file
+
+sudo chmod -R 740 folder
+}
+
+change root name(owner name){
+sudo chown root:sam file3.txt
+}
+
+
+
+Internet :{
+Protocol => Rules & Regulations
+IETF  => TCP/IP => Connecting Devices  (TCP=> Transmisstion Control /InterNet Protocol),(TCP/IP ==> Sub Protocol ==> Http,Ftp)
+
+
+IPAddress ==> ipv4,ipv6
+ipEndingDigit (ipv4)==>255.255.255.255(4digit) ==>32Bit,,,,,(ipv6) ===>(8digit)==>128bit
+
+127.0.0.1 ==> Loop Back Address
+
+IPAddress (255.255.255.255) => Domain Name(Ex:"google.com") ==> DNS =>Domain Naming Service
+
+Server ==> web(nginx==>hhtp(80),https(443)),database(my,mongoose==>),File( ===>FTP/TFTP),Mail(cups==>Pops/SMTP) Server ==> Watching and Listening
+
+}

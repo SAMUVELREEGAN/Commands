@@ -1,0 +1,9 @@
+ngrok copy-code-Authenticate
+
+ngrok http 5500
+
+cmd===> copy code===>paste Browser===>and add===>/===>/path
+
+visit anyway
+
+`

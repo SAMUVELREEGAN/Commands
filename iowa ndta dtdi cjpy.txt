@@ -1,0 +1,136 @@
+iowa ndta dtdi cjpy
+
+   @if ($role === 'buyer')
+        <a href="{{ route('properties') }}" class="homec-btn">
+            <span>{{ __('Buy Property') }}</span>
+        </a>
+        @elseif (in_array($role, ['individual_seller', 'residential_developer', 'broker_agent']))
+    @if (in_array($role, ['residential_developer', 'broker_agent']) && !$kycCompleted)
+        <a href="javascript:void(0);" onclick="kycRedirect()" class="homec-btn">
+            <span>{{ __('user.Create Property') }}</span>
+        </a>
+        
+        <script>
+            function kycRedirect() {
+                if (confirm('Please complete your KYC process before creating a property.')) {
+                    window.location.href = "{{ url('/user/kyc') }}";
+                }
+            }
+        </script>
+    @else
+        <a href="{{ route('user.choose-property-type') }}" class="homec-btn">
+            <span>{{ __('user.Create Property') }}</span>
+        </a>
+    @endif
+@endif
+
+=====================================================================================================================================================
+
+@if ($role === 'buyer')
+    <a href="{{ route('properties') }}" class="homec-btn">
+        <span>{{ __('Buy Property') }}</span>
+    </a>
+@elseif (in_array($role, ['individual_seller', 'residential_developer', 'broker_agent']))
+    @if (in_array($role, ['residential_developer', 'broker_agent']) && !$kycCompleted)
+        <button onclick="showKycPopup('{{ $kycStatus }}')" class="homec-btn">
+            <span>{{ __('user.Create Property') }}</span>
+        </button>
+
+        <!-- Popup -->
+        <div id="kycPopup" class="popup-overlay" style="display: none;">
+            <div class="popup-content">
+                <div id="popup-icon" class="popup-icon">⚠️</div>
+                <h2 id="popup-title">Warning</h2>
+                <p id="popup-message">Please complete your KYC process.</p>
+                <button onclick="redirectToKyc()" class="popup-button">Continue</button>
+            </div>
+        </div>
+
+        <script>
+            function showKycPopup(status) {
+                const popup = document.getElementById('kycPopup');
+                const title = document.getElementById('popup-title');
+                const message = document.getElementById('popup-message');
+                const icon = document.getElementById('popup-icon');
+                const button = document.querySelector('.popup-button');
+
+                if (status === 'no') {
+                    title.innerText = "No KYC Found";
+                    message.innerText = "Please complete your KYC before creating a property.";
+                    icon.innerText = "❌";
+                    button.style.backgroundColor = "#e53935"; // Red
+                    icon.style.color = "#e53935"; // Red
+                } else if (status === 'pending') {
+                    title.innerText = "KYC Process Pending";
+                    message.innerText = "Your KYC is pending. Please complete it.";
+                    icon.innerText = "⏳";
+                    button.style.backgroundColor = "#FFA500"; // Orange
+                    icon.style.color = "#FFA500"; // Orange
+                }
+
+                popup.style.display = 'flex';
+            }
+
+            function redirectToKyc() {
+                window.location.href = "{{ url('/user/kyc') }}";
+            }
+        </script>
+
+        <style>
+            .popup-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
+            .popup-content {
+                background: #fff;
+                padding: 30px;
+                border-radius: 12px;
+                text-align: center;
+                width: 320px;
+                box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+                animation: popupFadeIn 0.3s ease;
+            }
+            .popup-icon {
+                font-size: 50px;
+                margin-bottom: 20px;
+            }
+            .popup-button {
+                color: white;
+                border: none;
+                padding: 10px 25px;
+                border-radius: 8px;
+                margin-top: 20px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .popup-button:hover {
+                opacity: 0.9;
+            }
+            @keyframes popupFadeIn {
+                from { opacity: 0; transform: scale(0.9); }
+                to { opacity: 1; transform: scale(1); }
+            }
+        </style>
+
+    @else
+        <a href="{{ route('user.choose-property-type') }}" class="homec-btn">
+            <span>{{ __('user.Create Property') }}</span>
+        </a>
+    @endif
+@endif
+
+
+=======================================================================================================
+
+
+return view('your-view', [
+    'kycStatus' => $user->kyc_status, // Example: 'no' or 'pending'
+]);

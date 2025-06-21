@@ -1,0 +1,113 @@
+
+https://console.cloud.google.com/apis/credentials?inv=1&invt=AbzYKg&project=bright-raceway-462108-j2
+
+GITHUB:
+
+1.dr
+2.git init
+3.git add .
+3.git commit -m "Initial Commit"
+4. git branch -M main
+6. copy url and paste===>(git remote add origin https://github.com/SAMUVELREEGAN/Happy-Food.git)
+7.push copy url(git push -u origin main)
+   ||
+   ||
+   ▽
+ ADD NEW FIELS
+8.git add .
+9.git commit -m "New Change(change massege)"
+10.git push
+
+Error:
+git config --global pull.rebase true
+git config --global rebase.autoStash true
+
+
+
+npm i gh-pages --save--dev
+
+
+
+
+
+
+ 2 git add .
+   3 git push
+   4 git init\
+   5 git init
+   6 echo "node_modules/" >> .gitignore
+   7 echo ".env" >> .gitignore
+   8 echo ".DS_Store" >> .gitignore
+   9 echo "*.log" >> .gitignore
+  10 git add .
+  11 git config --global core.autocrlf true
+  12 git rm --cached -r frontend
+  13 rm -rf frontend/.git
+  14 git add frontend
+  15 git commit -m "Add frontend as part of the main repository"
+  16 git rm --cached frontend
+  17 rm -rf frontend/.git
+  18 git config --global core.autocrlf true
+  19 git add frontend
+  20 Remove-Item -Recurse -Force frontend\.git
+  21 git rm --cached frontend
+  22 git add frontend
+  23 git commit -m "Removed embedded Git repository and re-added frontend"
+  24 git branch -M main
+  25 git remote add origin https://github.com/SAMUVELREEGAN/Portfolio.git
+  26 git push -u origin main
+
+
+
+
+
+
+1 try { . "c:\Users\hpsam\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1... 
+   2 cd frontend
+   3 npm start
+   4 git add .
+   5 git commit -m "Change Title"
+   6 git push
+   7 git pull origin main
+   8 git push origin main
+   9 git push origin main --force
+  10 npm start
+  11 npm install --save-dev @babel/plugin-proposal-private-property-in-object
+  12 rm -rf node_modules package-lock.json
+  13 npm run build
+  14 npm install babel-preset-react-app@latest
+  15 git add .
+  16 git push origin main --force
+  17 git add .
+  18 git commit -m "Initial commit"
+  19 git push -u origin main
+  20 git add .
+  21 git commit -m "Update build output directory to dist"
+  22 git push -u origin main
+  23 npm start
+  24 git add .
+  25 git commit -m "Update Logo"
+  26 git push -u origin main
+  27 history
+  28 git add .
+  29 git commit -m "Update Resume"
+  30 git push -u origin main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+double
+  34 git rm -r --cached frontend...
+  35 git add frontend
+  36 git commit -m "Re-adding frontend files properly"...
+  37 git push origin main...

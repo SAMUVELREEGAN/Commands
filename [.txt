@@ -1,0 +1,47 @@
+[
+    {
+        "_id": "66debcf1e397ef0cf9d1dcb8",
+        "text": "python",
+        "code": "AI",
+        "posts": [],
+        "createdAt": "2024-09-09T09:16:33.281Z",
+        "updatedAt": "2024-09-09T09:16:33.281Z",
+        "__v": 0
+    },
+    {
+        "_id": "66debd07e397ef0cf9d1dcba",
+        "text": "java",
+        "code": "AI",
+        "posts": [],
+        "createdAt": "2024-09-09T09:16:55.781Z",
+        "updatedAt": "2024-09-09T09:16:55.781Z",
+        "__v": 0
+    }
+]
+
+
+tag id == 66debcf1e397ef0cf9d1dcb8
+
+post/insertwithpost
+{
+    "title" : "Python",
+    "content" : "Contant",
+    "image" : "Image",
+    "author" : "Author",
+    "tags" : [
+        "66debcf1e397ef0cf9d1dcb8"
+    ]
+
+}
+
+
+
+Mern_01
+http://localhost:8000/addproduct
+{
+    "id" : 22,
+   "name" : "Product",
+   "description" : "description",
+   "price" : 2000,
+   "imageUrl" : "http://localhost:8000/images/product_1726570269582.jpg"
+}

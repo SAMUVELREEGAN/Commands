@@ -1,0 +1,51 @@
+Notes on Steganography Tool (Seminar)
+1. Introduction to Steganography
+Definition: The practice of concealing messages or information within non-secret text or data, such as images, audio, or video files.
+Purpose: Ensures secrecy and adds an extra layer of security for sensitive information.
+2. Overview of the Tool
+A Python-based application using Tkinter for GUI and Stegano (LSB) for steganographic operations.
+3. Key Features
+Open Image: Allows users to upload images (supports .png, .jpg, .jpeg formats).
+Hide Data: Embeds user-entered text into an image using LSB (Least Significant Bit) encoding.
+Show Data: Extracts hidden messages from a previously encoded image.
+4. Technical Components
+Python Libraries:
+tkinter: For GUI development.
+filedialog & messagebox: For file operations and error handling.
+PIL (Pillow): For image processing.
+stegano.lsb: For hiding and revealing messages.
+Image Processing:
+Resizes the image to fit within a 300x300 canvas using Image.Resampling.LANCZOS.
+LSB Encoding:
+Utilizes the least significant bits of pixel data to encode the message without perceptible changes.
+5. GUI Layout
+Header: Displays the tool's title.
+Canvas: Shows the uploaded image.
+Message Box: A single text box for entering or displaying hidden messages.
+Buttons:
+Open Image: Uploads an image for steganographic operations.
+Hide Data: Encodes the message into the image and saves it as a .png file.
+Show Data: Reveals hidden messages from an uploaded image.
+6. Implementation Workflow
+Opening an Image:
+Prompts user to select an image.
+Prepares it for encoding/decoding.
+Hiding Data:
+Accepts user input as the message.
+Embeds the message into the image and saves it to a user-specified location.
+Revealing Data:
+Decodes and displays the hidden message in the text box.
+7. User Interaction
+Buttons dynamically enable/disable based on operations (e.g., Hide Data enabled after an image is uploaded).
+8. Error Handling
+Provides user-friendly messages for issues like invalid input, file path errors, or decoding failures.
+9. Applications
+Secure communication.
+Protecting sensitive information.
+Digital watermarking.
+10. Limitations
+Limited to LSB-based image steganography.
+Does not provide encryption for the message.
+11. Conclusion
+A simple, intuitive tool for learning and demonstrating steganography principles.
+Can be expanded to include advanced encoding techniques and additional media types.
