@@ -1,5 +1,6 @@
 npm install --save-dev ajv@^7
 
+npm install react-slick slick-carousel
 
 
 
