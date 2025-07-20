@@ -1,3 +1,9 @@
+git config --global user.name "Samuvel Reegan"
+git config --global user.email "samuelreegan372@gmail.com"
+
+git config user.email
+git config user.name
+
 
 https://console.cloud.google.com/apis/credentials?inv=1&invt=AbzYKg&project=bright-raceway-462108-j2
 
