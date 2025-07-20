@@ -1,0 +1,52 @@
+https://search.google.com/search-console/welcome
+
+
+google5cedae72de5f3cd6.html ==> add public path
+
+after add ==> use link ==>   https://vimal-raj-2006.onrender.com/google5cedae72de5f3cd6.html
+
+
+
+
+<title>iMAL .</title>
+<meta name="description" content="Official portfolio of Vimal Raj, full stack web developer with expertise in React, Node.js and more." />
+<meta name="keywords" content="Vimal Raj, Developer, React, Portfolio, Full Stack Developer" />
+<meta name="author" content="Vimal Raj" />
+<meta name="robots" content="index, follow" />
+
+<!-- Social Share -->
+<meta property="og:title" content="Vimal Raj Portfolio" />
+<meta property="og:description" content="Explore projects, skills, and achievements of Vimal Raj" />
+<meta property="og:image" content="https://vimal-raj-2006.onrender.com/logo.png" />
+<meta property="og:url" content="https://vimal-raj-2006.onrender.com/" />
+
+
+
+robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://vimal-raj-2006.onrender.com/sitemap.xml
+
+
+
+
+
+
+
+sitemap.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://vimal-raj-2006.onrender.com/</loc>
+    <priority>1.00</priority>
+  </url>
+  <!-- <url>
+    <loc>https://vimal-raj-2006.onrender.com/about</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://vimal-raj-2006.onrender.com/projects</loc>
+    <priority>0.80</priority>
+  </url> -->
+</urlset>
