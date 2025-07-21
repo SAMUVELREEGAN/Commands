@@ -45,3 +45,59 @@ pip install django-filter
 
 
 pip install -U django-jazzmin
+
+
+
+
+
+
+
+
+
+
+
+
+
+  -- -----------
+   1 try { . "c:\Users\User\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegrat...
+   2 django-admin createproject demo
+   3 django-admin startproject demo
+   4 django-admin startapp appName
+   5 python manage.py runserver
+   6 cd .\demo\
+   7 python manage.py runserver
+   8 cd .\demo\
+   9 python manage.py runserver
+  10 cd ..
+  11 python manage.py runserver
+  12 python manage.py runserver
+  13 cd ..
+  14 cd ..
+  15 cd '.\demo djano\'
+  16 python manage.py runserver
+  17 cd .\demo\
+  18 python manage.py runserver
+  19 npm install
+  20 pip install django
+  21 python manage.py runserver
+  22 pip list
+  23 cd .\demo\
+  24 pip install django
+  25 python manage.py runserver
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
