@@ -8,6 +8,9 @@ git config user.name
 git config --global user.name "vimal-raj-4126"
 git config --global user.email "vimalraj4126@gmail.com"
 
+
+ git fetch --all
+
 https://console.cloud.google.com/apis/credentials?inv=1&invt=AbzYKg&project=bright-raceway-462108-j2
 
 GITHUB:
