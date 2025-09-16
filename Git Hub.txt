@@ -127,3 +127,14 @@ double
   36 git commit -m "Re-adding frontend files properly"...
   37 git push origin main...
 
+
+
+
+ignore node
+
+.gitignore ==> backend/node_modules/
+
+git init
+git add . -- ':!backend/node_modules'
+git status
+
