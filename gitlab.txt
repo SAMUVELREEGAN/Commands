@@ -1,1 +1,13 @@
+git remote add origin https://gitlab.com/username/my-first-project.git
+git remote add github https://github.com/username/my-first-project.git
 
+
+origin → GitLab
+
+github → GitHub
+
+
+git push origin main     # Push to GitLab
+git push github main     # Push to GitHub
+
+git push origin main && git push github main
