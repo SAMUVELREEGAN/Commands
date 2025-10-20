@@ -11,3 +11,29 @@ git push origin main     # Push to GitLab
 git push github main     # Push to GitHub
 
 git push origin main && git push github main
+
+
+
+
+gitlab-runner register
+
+Enter the GitLab instance URL (for example,
+https://gitlab.com/
+
+Enter the registration token:
+NPYtm-ozFxijoj3e1LRA
+
+Enter a description for the runner:
+[DESKTOP-JU9K51DJ: my-runnerl
+
+Enter tags for the runner (comma-separated) :
+ssh, ci
+
+Registering runner...
+succeeded
+
+Enter an executor: docker, parallels,
+shell
+Runner registered successfully.
+
+gitlab-runner start
