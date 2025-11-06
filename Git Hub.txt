@@ -8,6 +8,11 @@ git config user.name
 git config --global user.name "vimal-raj-4126"
 git config --global user.email "vimalraj4126@gmail.com"
 
+ssh=>key :
+ssh-keygen -t rsa -b 4096 -C "samuelreegan372@gmail.com"
+cat .ssh/id_rsa.pub
+
+
 
  git fetch --all
 
@@ -137,4 +142,5 @@ ignore node
 git init
 git add . -- ':!backend/node_modules'
 git status
+
 
