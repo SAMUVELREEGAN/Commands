@@ -1,0 +1,1 @@
+tar -a -c -f pharmacy-app.zip --exclude=node_modules pharmacy-app
